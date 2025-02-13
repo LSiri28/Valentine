@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(135deg, #FEE2E2, #F8BBD0);
+            text-align: center;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #C2185B;
+            text-shadow: 3px 3px 10px rgba(255, 0, 0, 0.6);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #D81B60;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            color: #AD1457;
+        }
+
+        .heart, .balloon {
+            position: absolute;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Valentine's Day</h1>
+        <h2>To My Love</h2>
+        <p class="message">Wishing you a day filled with love, joy, and sweet moments! 💖</p>
+    </div>
+    
+    <script>
+        function createFloatingElements(type, emoji, count) {
+            for (let i = 0; i < count; i++) {
+                let element = document.createElement("div");
+                element.className = type;
+                element.textContent = emoji;
+                element.style.left = Math.random() * 100 + "vw";
+                element.style.fontSize = Math.random() * 40 + 20 + "px";
+                element.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                document.body.appendChild(element);
+                setTimeout(() => { element.remove(); }, 5000);
+            }
+        }
+
+        setInterval(() => {
+            createFloatingElements("heart", "❤️", 5);
+            createFloatingElements("balloon", "🎈", 3);
+        }, 1000);
+    </script>
+</body>
+</html>
